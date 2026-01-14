@@ -539,3 +539,27 @@ a{ color: inherit; text-decoration: none; }
     padding-right: 6px;
   }
 }
+
+
+/* ✅ 키보드 올라올 때 write 페이지 레이아웃 안정화 */
+@media (max-width: 480px){
+
+  /* 1) 스크롤 막지 말기 (이게 제일 중요) */
+  body{
+    overflow-x: hidden;
+    overflow-y: auto;          /* ✅ hidden → auto */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 2) height 고정하지 말고 min-height로 */
+  .stage{
+    height: auto !important;
+    min-height: 100dvh;
+  }
+
+  .outer{
+    height: auto !important;
+    min-height: calc(100dvh - 32px);
+  }
+}
+
