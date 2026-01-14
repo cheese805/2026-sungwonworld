@@ -30,7 +30,6 @@ body{
   font-family: "DungGeunMo", sans-serif;
   background: var(--bg);
   color: var(--ink);
-  overflow: hidden;
 }
 
 a{ color: inherit; text-decoration: none; }
