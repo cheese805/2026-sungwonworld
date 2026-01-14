@@ -1,0 +1,412 @@
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("./DungGeunMo.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== 타이포 스케일 (요청대로 3개만) ===== */
+:root{
+  --fs-15: 15px; /* 제목 */
+  --fs-12: 12px; /* 기본 */
+  --fs-10: 10px; /* 보조 */
+
+  --bg: #6f95ff;
+  --ink: #111;
+  --border: #111;
+  --muted: #777;
+  --blue: #1f5fff;
+  --placeholder: #d7d7d7;
+  --dash: rgba(255,255,255,.55);
+
+  --gap-between: 6px;
+  --outer-top-padding: 46px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: "DungGeunMo", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+a{ color: inherit; text-decoration: none; }
+.link{ color: var(--blue); text-decoration: none; }
+
+.stage{
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px 12px;
+}
+
+/* ===== outer (점선 컨테이너) ===== */
+.outer{
+  width: min(360px, 100%);
+  height: calc(100vh - 32px);
+  position: relative;
+  padding-top: var(--outer-top-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-between);
+}
+
+.outer::before{
+  content:"";
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: calc(var(--outer-top-padding) - 10px);
+  bottom: -10px;
+  border: 2px dashed var(--dash);
+  border-radius: 38px;
+  pointer-events: none;
+}
+
+
+/* ===== 탭 ===== */
+.tabs{
+  position: absolute;
+  top: 14px;
+  left: 26px;
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+}
+
+.tab{
+  height: 34px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6e6e6;
+  border: 2px solid var(--border);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  font-size: var(--fs-15);
+  margin-bottom: -2px;
+}
+
+.tab[aria-current="page"]{
+  background: #fff; 
+  border-bottom: none; 
+}
+
+/* ===== 공통 박스 ===== */
+.box{
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 26px;
+  padding: 16px;
+}
+
+/* ===== 위 박스 ===== */
+.title{
+  font-size: var(--fs-15);
+  margin: 0 0 12px;
+}
+h1.title{
+  font-weight: 400 !important;
+}
+
+.profile{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+}
+
+.avatar{
+  width: 110px;
+  height: 110px;
+  background: url("img/profile.jpg") center / cover no-repeat;
+  border-radius: 14px;
+}
+
+
+.counts{ font-size: var(--fs-12); }
+.name{ font-size: var(--fs-15); margin: 6px 0; }
+.sub{ font-size: var(--fs-12); color: var(--muted); }
+
+.meta{
+  font-size: var(--fs-12);
+  display: flex;
+  gap: 8px;
+}
+
+.today-is{
+  font-size: var(--fs-10);
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+/* ===== 스프링 ===== */
+.springs{
+  position: relative;
+  height: 0;
+}
+
+.spring{
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  border: 2px solid #8d8d8d;
+  border-radius: 8px;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #ffffff 48%,
+    #bdbdbd 50%,
+    #cfcfcf 52%,
+    #cfcfcf 100%
+  );
+  top:-18px;
+}
+
+
+.s1{ left: 78px; }
+.s2{ left: 118px; }
+.s3{ right: 118px; }
+.s4{ right: 78px; }
+
+/* ===== 아래 박스 ===== */
+.box-bottom{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* bgm 라인 */
+.row-line{
+  font-size: var(--fs-12);
+  border-bottom: 1px solid #666;
+  padding-bottom: 8px;
+  margin-left: 6px;
+}
+.row-line .row-right{
+  display: inline-block;
+  transition: opacity .45s ease;
+  opacity: 1;
+}
+
+.row-line .row-right.is-fading{
+  opacity: 0;
+}
+
+/* ===== 방명록 (전체 클릭) ===== */
+.guestbook-link{
+  border: 1px solid #666;
+  border-radius: 12px;
+  padding: 22px 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.guestbook-link:hover{
+  background: #f7f7f7;
+}
+
+.guestbook-title{
+  font-size:20px;
+  margin: 0 0 10px;
+}
+
+.guestbook-btn{
+  font-size: var(--fs-15);
+  color: var(--blue);
+}
+
+/* ===== 미니룸 ===== */
+.miniroom{
+  flex: 0;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 미니룸(배경 이미지) — 너가 원한 'contain' 유지 */
+.miniroom-placeholder{
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background-image: url("img/miniroom.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* 사진 안 잘림 */
+  background-color: #d7d7d7;
+  border-radius: 2px;
+  margin-top: 10px;
+
+  position: relative;   /* ⭐ 캐릭터를 안에 얹기 */
+  overflow: hidden;     /* 밖으로 나가면 잘리게 */
+}
+
+
+/* 캐릭터 */
+.miniroom-chara{
+  position: absolute;
+  left: 20%;
+  top: 62%;
+
+  width: 88px;
+  height: 120px;
+
+  background: url("img/chara.png") center / contain no-repeat;
+
+  transform: translate(-50%, -100%);
+  transform-origin: 50% 100%;
+  transition: left 1.2s ease, top 1.2s ease, transform .3s ease;
+
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+/* 말풍선 */
+.miniroom-bubble{
+  position: absolute;
+  left: 20%;
+  top: 70%;
+
+  /* ✅ Y는 JS에서 캐릭터 키로 계산할 거라 X만 남김 */
+  transform: translateX(-50%);
+
+  padding: 6px 10px;
+  font-size: 11px;
+  line-height: 1.2;
+  background: #fff;
+  border: 1px solid #111;
+  border-radius: 12px;
+  white-space: nowrap;
+
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+
+  box-shadow: 1px 1px 0 rgba(0,0,0,.15);
+}
+
+/* 꼬리 제거 */
+.miniroom-bubble::after{ display: none; }
+
+/* 보이기 상태 (✅ Y는 JS가 세팅하니까 여기선 opacity만) */
+.miniroom-bubble.is-on{
+  opacity: 1;
+}
+
+
+.miniroom-head{
+  font-size: var(--fs-10);
+  border-bottom: 1px solid #666;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+}
+
+/* ===== 모바일 최적화 (화면 폭 480px 이하) ===== */
+@media (max-width: 480px) {
+  /* [1. 기본 설정 (iPhone SE 등 짧은 화면 기준)] */
+  /* 요청하신 SE 전용 코드를 기본으로 적용합니다 */
+  .stage {
+    padding: 20px 16px; /* 좁은 파란 여백 */
+    height: 100dvh; 
+  }
+
+  .outer {
+    width: 100%;
+    height: 100%;
+    /* 레이아웃 깨짐 방지를 위해 flex 명시 */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* SE: 미니룸 크기를 줄여서 하단 여백 확보 */
+  .miniroom-placeholder {
+    width: 85%; 
+    margin: 10px auto 0; 
+  }
+
+  .box-bottom {
+    flex: 1;
+    padding-bottom: 20px;
+    justify-content: space-between; /* SE: 내용물 균등 배치로 꽉 채우기 */
+  }
+}
+
+/* [2. 화면이 긴 기기 추가 설정 (높이 700px 이상)] */
+/* iPhone 12, 13, 14, Pro Max 등 길쭉한 폰들 */
+@media (max-width: 480px) and (min-height: 700px) {
+  .stage {
+    /* 파란색 여백을 시원하게 늘림 (60px) */
+    padding: 60px 20px; 
+  }
+
+  /* 긴 화면은 공간이 충분하므로 미니룸을 굳이 줄이지 않고 꽉 채움 */
+  .miniroom-placeholder {
+    width: 100%;
+    margin-top: 10px; /* margin auto 해제 */
+  }
+
+  /* 배치 스타일 변경 (늘어지지 않고 자연스럽게 상단 정렬) */
+  .box-bottom {
+    justify-content: flex-start; 
+    gap: 20px; /* 요소 사이 간격 */
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-15: 23px; 
+    --fs-12: 18px; 
+    --fs-10: 15px; 
+  }
+
+  .tab { font-size: 15px !important; }
+  .title { font-size: 15px !important; }
+
+  .profile {
+    grid-template-columns: 165px 1fr; 
+    gap: 20px;
+  }
+
+  .avatar {
+    width: 165px;
+    height: 165px;
+  }
+
+  .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 0; 
+    height: 100vh;
+  }
+
+  .outer {
+    width: 600px; 
+    height: 92vh; 
+    max-height: 1100px;
+
+    overflow: hidden; /* ✅ 추가 */
+  }
+
+  .miniroom-placeholder {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .box-bottom {
+    flex: 1;
+    justify-content: flex-start;
+    gap: 20px;
+
+    min-height: 0;    /* ✅ 추가 */
+    overflow-y: auto; /* ✅ 추가 */
+  }
+}

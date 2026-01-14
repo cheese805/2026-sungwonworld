@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SungWon World - Guestbook</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="list.css" />
+</head>
+
+<body>
+  <main class="stage">
+    <section class="outer" aria-label="미니홈피 전체">
+
+      <nav class="tabs" aria-label="상단 메뉴">
+        <a class="tab" href="index.html">홈</a>
+        <a class="tab" href="list.html" aria-current="page">방명록</a>
+      </nav>
+
+      <section class="box box-top" aria-label="프로필 박스">
+        <h1 class="title">성원님의 미니홈피</h1>
+
+        <div class="profile">
+          <div class="avatar" aria-label="프로필 이미지 자리"></div>
+          <div class="info">
+            <p class="counts">TODAY 124 <span class="sep">|</span> TOTAL 1999</p>
+            <p class="name">성원</p>
+            <p class="sub">성원님의 미니홈피</p>
+            <div class="meta">
+              <span>일촌&nbsp;&nbsp;615</span>
+              <span class="meta-sep"></span>
+              <span>즐겨찾기&nbsp;&nbsp;28</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="today-is"><a href="#" class="link">Today is ...</a></p>
+      </section>
+
+      <div class="springs" aria-hidden="true">
+        <span class="spring s1"></span>
+        <span class="spring s2"></span>
+        <span class="spring s3"></span>
+        <span class="spring s4"></span>
+      </div>
+
+      <section class="box box-bottom" aria-label="방명록 박스">
+        <div class="gb-wrap">
+
+          <h2 class="gb-heading">성원님의 미니홈피</h2>
+
+          <a class="write-btn" href="write.html">생일축하 메시지 남기기</a>
+
+          <div class="gb-divider" aria-hidden="true"></div>
+
+          <!-- ✅ 빨간 네모 영역: 여기 “전체”가 스크롤 -->
+          <div class="gb-scroll-area" aria-label="방명록 스크롤 영역">
+
+            <p class="gb-notice">
+              메시지 내용은 1/24 00:00에 공개됩니다.<br />
+              닉네임과 PIN을 이용하여 메시지를 수정할 수 있습니다.
+            </p>
+
+            <a class="gb-tools" href="edit.html">&gt; 내 메시지 수정하기 &lt;</a>
+
+            <!-- ✅ 서버 DB 데이터가 들어갈 자리 -->
+            <div id="messageList" class="msg-list"></div>
+
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <script src="list.js"></script>
+</body>
+</html>

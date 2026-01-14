@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SungWon World - Edit</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="edit.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="outer" aria-label="미니홈피 전체">
+
+      <!-- 탭(인덱스) -->
+      <nav class="tabs" aria-label="상단 메뉴">
+        <a class="tab" href="index.html">홈</a>
+        <a class="tab" href="list.html" aria-current="page">방명록</a>
+      </nav>
+
+      <!-- 위 박스: 타이틀 -->
+      <section class="box box-top" aria-label="상단 박스">
+        <h1 class="title">성원님의 미니홈피</h1>
+        <p class="edit-sub">방명록 수정/삭제</p>
+      </section>
+
+      <!-- 스프링 -->
+      <div class="springs" aria-hidden="true">
+        <span class="spring s1"></span>
+        <span class="spring s2"></span>
+        <span class="spring s3"></span>
+        <span class="spring s4"></span>
+      </div>
+
+      <!-- 아래 박스 -->
+      <section class="box box-bottom" aria-label="수정 박스">
+
+        <!-- 메시지 남기기 -->
+        <a class="guestbook guestbook-link" href="write.html">
+          <p class="guestbook-title">생일축하 메시지 남기기</p>
+        </a>
+
+        <div class="divider"></div>
+
+        <!-- 조회 폼 -->
+        <form id="lookupForm" class="lookup" autocomplete="off">
+          <div class="lookup-row">
+            <label class="lookup-label" for="lookupNick">닉네임</label>
+            <input id="lookupNick" class="lookup-input" type="text" maxlength="24" required />
+          </div>
+
+          <div class="lookup-row">
+            <label class="lookup-label" for="lookupPin">PIN</label>
+            <input id="lookupPin" class="lookup-input" type="password" inputmode="numeric" maxlength="32" required />
+          </div>
+
+          <button id="lookupBtn" class="btn btn-primary" type="submit">조회</button>
+        </form>
+
+        <div class="divider"></div>
+        
+        <section id="resultList" class="result-list" hidden>
+        <p class="result-title">내가 쓴 글</p>
+        <div id="resultItems" class="result-items"></div>
+        </section>
+
+        <!-- 수정 카드 -->
+        <section id="editCard" class="edit-card" hidden>
+          <p id="editNickLabel" class="edit-nick">닉네임</p>
+
+          <textarea id="editMessage" class="edit-textarea" rows="6" maxlength="2000"></textarea>
+
+          <div class="edit-actions">
+            <button id="saveBtn" class="btn btn-primary" type="button">수정완료</button>
+            <button id="deleteBtn" class="btn btn-danger" type="button">삭제</button>
+          </div>
+
+          <p id="editStatus" class="status"></p>
+        </section>
+
+      </section>
+    </section>
+  </main>
+
+  <script src="edit.js"></script>
+</body>
+</html>

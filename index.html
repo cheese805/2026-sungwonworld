@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SungWon World - 2026 sw's Birthday</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="outer" aria-label="미니홈피 전체">
+
+      <!-- 탭(인덱스) -->
+      <nav class="tabs" aria-label="상단 메뉴">
+        <a class="tab" href="index.html" aria-current="page">홈</a>
+        <a class="tab" href="list.html">방명록</a>
+      </nav>
+
+      <!-- 위 박스: 프로필 -->
+      <section class="box box-top" aria-label="프로필 박스">
+        <h1 class="title">성원님의 미니홈피</h1>
+
+        <div class="profile">
+          <div class="avatar" aria-label="프로필 이미지 자리"></div>
+
+          <div class="info">
+            <p class="counts">TODAY 124 <span class="sep">|</span> TOTAL 1999</p>
+            <p class="name">성원</p>
+            <p class="sub">성원님의 미니홈피</p>
+
+            <div class="meta">
+              <span>일촌&nbsp;&nbsp;615</span>
+              <span class="meta-sep"></span>
+              <span>즐겨찾기&nbsp;&nbsp;28</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="today-is"><a href="#" class="link">Today is ...</a></p>
+      </section>
+
+      <!-- 스프링 -->
+      <div class="springs" aria-hidden="true">
+        <span class="spring s1"></span>
+        <span class="spring s2"></span>
+        <span class="spring s3"></span>
+        <span class="spring s4"></span>
+      </div>
+
+      <!-- 아래 박스: 방명록/미니룸 -->
+      <section class="box box-bottom" aria-label="방명록/미니룸 박스">
+        <!-- bgm 줄 -->
+        <div class="row-line">
+          <span class="row-left"><a class="link" href="#">bgm</a></span>
+          <span class="row-mid">&gt;</span>
+          <span class="row-right">사랑합니다 - 팀</span>
+        </div>
+
+        <!-- 방명록 카드 -->
+        <a class="guestbook guestbook-link" href="list.html">
+            <p class="guestbook-title">방명록</p>
+            <span class="guestbook-btn">생일축하 메세지 남기기</span>
+        </a>
+
+        <!-- 미니룸 -->
+        <div class="miniroom">
+          <div class="miniroom-head">
+            <span class="miniroom-left"><a class="link" href="#">Mini Room</a></span>
+            <span class="miniroom-right">HONG</span>
+          </div>
+
+          <div class="miniroom-placeholder" aria-label="미니룸 이미지 자리">
+            <div class="miniroom-chara" aria-hidden="true"></div>
+            <div class="miniroom-bubble" aria-hidden="true"></div>
+          </div>
+
+        </div>
+      </section>
+
+    </section>
+  </main>
+   <script src="script.js"></script>
+
+</body>
+</html>

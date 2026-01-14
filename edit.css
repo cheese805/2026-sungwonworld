@@ -1,0 +1,315 @@
+/* edit.css */
+
+.edit-sub{
+  font-size: var(--fs-12);
+  color: var(--muted);
+  margin: 0;
+  margin-left: 2px;
+}
+
+/* 아래 박스 안에서 스크롤 필요하면 켜도 됨 */
+.box-bottom{
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  min-height: 0;
+}
+.guestbook-link{ margin: 0; }
+.lookup{ margin: 0; flex: 0 0 auto; }
+.divider{ flex: 0 0 auto; margin: 8px 0; }
+
+/* ✅ 라인(구분선): 위/아래 여백 최소 */
+.divider{
+  border-top: 1px solid #666;
+  margin: 8px 0;     /* 너무 붙으면 6px, 더 붙이고 싶으면 4px */
+}
+
+/* ✅ 조회 박스: 위로 착 붙게 */
+.lookup{
+  margin: 0;         /* 혹시 기본 margin이 생기는 경우 방지 */
+  border: 1px solid #666;
+  border-radius: 14px;
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.lookup-row{
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.lookup-label{
+  font-size: var(--fs-12);
+}
+
+.lookup-input{
+  height: 30px;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: var(--fs-12);
+  font-family: inherit;
+}
+
+
+
+.hint{
+  font-size: var(--fs-10);
+  color: var(--muted);
+  margin: 0;
+  margin-top: -4px;
+}
+
+.edit-card{
+  border: 1px solid #666;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.edit-nick{
+  font-size: var(--fs-12);
+  margin: 0 0 10px;
+}
+
+.edit-textarea{
+  width: 100%;
+  border: 1px solid #666;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: var(--fs-12);
+  font-family: inherit;
+  resize: none;
+  outline: none;
+}
+
+.edit-actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn{
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #666;
+  background: #f2f2f2;
+  font-size: var(--fs-12);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn:active{
+  transform: translateY(1px);
+}
+
+.btn-primary{
+  background: #eaeaea;
+}
+
+.btn-danger{
+  background: #fff;
+}
+
+.status{
+  font-size: var(--fs-10);
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.result-list{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #666;
+  border-radius: 14px;
+  padding: 12px;
+  margin-top: 0;
+}
+
+.result-title{
+  margin: 0 0 8px;
+  font-size: var(--fs-12);
+}
+
+.result-items{
+  overflow-y: auto;
+  min-height: 0;
+  height: calc(100% - 22px); /* 제목 높이만큼 빼기 (대충) */
+  padding-right: 2px;        /* 스크롤바 공간 */
+}
+
+
+.result-item{
+  border: 1px solid #666;
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+}
+.result-meta{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: var(--fs-10);
+  color: var(--muted);
+}
+
+.result-preview{
+  font-size: var(--fs-12);
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.result-actions{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* =======================================
+   edit 전용 반응형 (@media)
+   - 공통(style.css) 규칙 그대로:
+     480px 모바일 + (높이 700 기준) SE/긴폰 분기
+     768px 이상 태블릿/데스크톱
+   - 핵심: 조회박스 위는 고정, 아래(내가 쓴 글)만 스크롤
+======================================= */
+
+/* ✅ 0) 모바일에서 내부 스크롤/높이 계산 안정화 (flex min-height 체인) */
+@media (max-width: 480px){
+  .stage{ min-height: 0; }
+  .outer{ min-height: 0; }
+  .box-bottom{ min-height: 0; }
+  .lookup{ min-height: 0; }
+  .result-list{ min-height: 0; }
+  .result-items{ min-height: 0; }
+}
+
+/* ✅ 1) 기본 모바일(폭 480 이하) */
+@media (max-width: 480px){
+  .stage{
+    padding: 20px 16px;  /* write.css랑 톤 맞춤 */
+    height: 100dvh;
+  }
+
+  .outer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* edit 페이지도 아래 박스 내부 스크롤이 먹게 */
+  .box-bottom{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* 조회폼이 너무 커 보이면 살짝 타이트 */
+  .lookup{
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .lookup-row{
+    grid-template-columns: 48px 1fr;
+    gap: 8px;
+  }
+
+  .lookup-input{
+    height: 28px;
+  }
+
+  /* ✅ 결과 리스트만 스크롤 */
+  .result-list{
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 10px;
+  }
+  .result-items{
+    overflow-y: auto;
+    height: calc(100% - 22px);
+  }
+}
+
+/* ✅ 2) “짧은 화면” (iPhone SE급) — 높이 700 미만 */
+@media (max-width: 480px) and (max-height: 699px){
+  /* 위 박스가 너무 커서 아래가 답답하면 살짝 줄이기 */
+  .box-top{
+    padding: 14px 14px;
+  }
+
+  /* 스프링이 공간 먹으면 조금 줄임 */
+  .spring{
+    height: 26px;
+    top: -16px;
+  }
+
+  /* ‘생일축하 메시지 남기기’ 링크 박스가 너무 커서 밀리면 살짝 축소 */
+  .guestbook-link{
+    padding: 16px 12px;
+  }
+  .guestbook-title{
+    font-size: 18px;
+  }
+
+  /* divider 간격 더 타이트 */
+  .divider{
+    margin: 6px 0;
+  }
+}
+
+/* ✅ 3) “긴 화면” (iPhone 12~ Pro Max 등) — 높이 700 이상 */
+@media (max-width: 480px) and (min-height: 700px){
+  .stage{
+    padding: 60px 20px; /* style.css / write.css의 긴폰 규칙 */
+  }
+
+  .lookup{
+    padding: 14px;
+  }
+
+  .divider{
+    margin: 10px 0;
+  }
+
+  .result-list{
+    padding: 12px;
+  }
+}
+
+/* ✅ 4) 태블릿/데스크톱(768 이상) */
+@media (min-width: 768px){
+  .stage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 0;
+    height: 100vh;
+  }
+
+  .outer{
+    width: 600px;   /* style.css 데스크톱 규칙과 일치 */
+    height: 92vh;
+    max-height: 1100px;
+  }
+
+  /* 데스크톱에서는 여백 조금 주고 결과 리스트 보기 좋게 */
+  .lookup{
+    padding: 16px;
+  }
+
+  .result-list{
+    padding: 14px;
+  }
+}
