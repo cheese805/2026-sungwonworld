@@ -233,7 +233,7 @@ h1.title{
 .miniroom-placeholder{
   width: 100%;
   aspect-ratio: 3 / 2;
-  background-image: url("img/miniroom.png");
+  background-image: url("img/miniroom2.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain; /* 사진 안 잘림 */
