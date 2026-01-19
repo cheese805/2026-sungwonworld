@@ -229,11 +229,11 @@ h1.title{
   flex-direction: column;
 }
 
-/* 미니룸(배경 이미지) — 너가 원한 'contain' 유지 */
+
 .miniroom-placeholder{
   width: 100%;
   aspect-ratio: 3 / 2;
-  background-image: url("img/miniroom2.png");
+  background-image: url("img/miniroom3.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain; /* 사진 안 잘림 */
@@ -241,7 +241,7 @@ h1.title{
   border-radius: 2px;
   margin-top: 10px;
 
-  position: relative;   /* ⭐ 캐릭터를 안에 얹기 */
+  position: relative;   /* 캐릭터를 안에 얹기 */
   overflow: hidden;     /* 밖으로 나가면 잘리게 */
 }
 
